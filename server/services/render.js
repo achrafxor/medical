@@ -5,13 +5,36 @@ exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
     axios.get('http://localhost:3000/api/users')
         .then(function(response){
-            res.render('index', { users : response.data });
+            res.render('login', { users : response.data });
         })
         .catch(err =>{
             res.send(err);
         })
 
     
+}
+
+exports.users = (req, res) => {
+    // Make a get request to /api/users
+    axios.get('http://localhost:3000/api/users')
+        .then(function(response){
+            res.render('index', { users : response.data });
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+
+}
+exports.home = (req, res) => {
+    // Make a get request to /api/users
+    axios.get('http://localhost:3000/api/users')
+        .then(function(response){
+            res.render('home', { users : response.data });
+        })
+        .catch(err =>{
+            res.send(err);
+        })
+
 }
 
 exports.add_user = (req, res) =>{

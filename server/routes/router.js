@@ -17,6 +17,14 @@ route.get('/', services.homeRoutes);
 route.get('/add-user', services.add_user)
 
 /**
+ *  @description add users
+ *  @method GET /users
+ */
+route.get('/usersl', services.users)
+
+
+
+/**
  *  @description for update user
  *  @method GET /update-user
  */

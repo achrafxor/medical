@@ -23,6 +23,11 @@ route.get('/add-user', services.add_user)
 route.get('/usersl', services.users)
 
 
+/**
+ *  @description home
+ *  @method GET /home
+ */
+route.get('/home', services.home)
 
 /**
  *  @description for update user

@@ -1,4 +1,4 @@
-var Userdb = require('../model/model');
+var Patientdb = require('../model/model');
 
 // create and save new user
 exports.create = (req,res)=>{
@@ -9,7 +9,7 @@ exports.create = (req,res)=>{
     }
 
     // new user
-    const user = new Userdb({
+    const user = new Patientdb({
         name : req.body.name,
         email : req.body.email,
         gender: req.body.gender,
@@ -37,25 +37,25 @@ exports.find = (req, res)=>{
     if(req.query.id){
         const id = req.query.id;
 
-        Userdb.findById(id)
+        Patientdb.findById(id)
             .then(data =>{
                 if(!data){
-                    res.status(404).send({ message : "Not found user with id "+ id})
+                    res.status(404).send({ message : "Not found patient with id "+ id})
                 }else{
                     res.send(data)
                 }
             })
             .catch(err =>{
-                res.status(500).send({ message: "Erro retrieving user with id " + id})
+                res.status(500).send({ message: "Erro retrieving patient with id " + id})
             })
 
     }else{
-        Userdb.find()
+        Patientdb.find()
             .then(user => {
                 res.send(user)
             })
             .catch(err => {
-                res.status(500).send({ message : err.message || "Error Occurred while retriving user information" })
+                res.status(500).send({ message : err.message || "Error Occurred while retriving patient information" })
             })
     }
 
@@ -71,16 +71,16 @@ exports.update = (req, res)=>{
     }
 
     const id = req.params.id;
-    Userdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
+    Patientdb.findByIdAndUpdate(id, req.body, { useFindAndModify: false})
         .then(data => {
             if(!data){
-                res.status(404).send({ message : `Cannot Update user with ${id}. Maybe user not found!`})
+                res.status(404).send({ message : `Cannot Update patient with ${id}. Maybe patient not found!`})
             }else{
                 res.send(data)
             }
         })
         .catch(err =>{
-            res.status(500).send({ message : "Error Update user information"})
+            res.status(500).send({ message : "Error Update patient information"})
         })
 }
 
@@ -88,19 +88,19 @@ exports.update = (req, res)=>{
 exports.delete = (req, res)=>{
     const id = req.params.id;
 
-    Userdb.findByIdAndDelete(id)
+    Patientdb.findByIdAndDelete(id)
         .then(data => {
             if(!data){
                 res.status(404).send({ message : `Cannot Delete with id ${id}. Maybe id is wrong`})
             }else{
                 res.send({
-                    message : "User was deleted successfully!"
+                    message : "Patient was deleted successfully!"
                 })
             }
         })
         .catch(err =>{
             res.status(500).send({
-                message: "Could not delete User with id=" + id
+                message: "Could not delete Patient with id=" + id
             });
         });
 }

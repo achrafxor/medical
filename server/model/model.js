@@ -14,6 +14,6 @@ var schema = new mongoose.Schema({
     phone : String
 })
 
-const Userdb = mongoose.model('userdb', schema);
+const Patientdb = mongoose.model('patientdb', schema);
 
-module.exports = Userdb;
+module.exports = Patientdb;

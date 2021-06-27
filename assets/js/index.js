@@ -54,7 +54,7 @@ $("#update_doctor").submit(function(event){
 
 
 
-if(window.location.pathname == "/"){
+if(window.location.pathname == "/usersl"){
     $ondelete = $(".table tbody td a.delete");
     $ondelete.click(function(){
         var id = $(this).attr("data-id")

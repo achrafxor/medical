@@ -25,6 +25,9 @@ exports.users = (req, res) => {
         })
 
 }
+
+
+
 exports.home = (req, res) => {
     // Make a get request to /api/users
     axios.get('http://localhost:3000/api/users')
@@ -40,6 +43,8 @@ exports.home = (req, res) => {
 exports.add_user = (req, res) =>{
     res.render('add_user');
 }
+
+
 
 exports.update_user = (req, res) =>{
     axios.get('http://localhost:3000/api/users', { params : { id : req.query.id }})

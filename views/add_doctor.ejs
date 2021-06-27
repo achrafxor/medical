@@ -3,21 +3,21 @@
 <%- include('include/_header') %>
 <!-- /include header -->
 
-  <!-- Main Site -->
-  <main id="site-main">
+<!-- Main Site -->
+<main id="site-main">
     <div class="container">
         <div class="box-nav d-flex justify-between">
-           <div class="filter">
-               <a href="/"><i class="fas fa-angle-double-left"></i> All Doctors</a>
-           </div>
+            <div class="filter">
+                <a href="/list-doctors"><i class="fas fa-angle-double-left"></i> All doctors</a>
+            </div>
         </div>
         <div class="form-title text-center">
-            <h2 class="text-dark">New Doctor</h2>
+            <h2 class="text-dark">New doctor</h2>
             <span class="text-light">Use the below form to create a new Doctor</span>
         </div>
 
         <!-- add user form -->
-        <%- include('include/_form') %>
+        <%- include('include/_addDoctorForm') %>
 
     </div>
 </main>

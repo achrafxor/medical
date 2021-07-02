@@ -1,0 +1,19 @@
+- hosts: localhost
+  tasks:
+    - name: Test de notre module
+      test:
+      register: result
+
+    - debug: var=result
+
+    - name: test2
+      compare_file: 
+         dir: /tmp/env/dir
+         exclude:
+           - x
+         file: secret
+      register: res
+      become: true
+       
+
+    - debug: var=res  
